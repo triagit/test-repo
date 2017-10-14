@@ -1,0 +1,8 @@
+---
+rules:
+- rule: cleanup_issues
+  options:
+    # ISO 8601 duration
+    older_than: PT5M
+    apply_labels: ["inactive", "rip"]
+    add_comment: "Sorry, closing the issue as its older than 5 minutes"
