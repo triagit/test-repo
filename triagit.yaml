@@ -1,6 +1,6 @@
 ---
 rules:
-- name: close issues older than 5 minutes
+- name: close_issues_older_than_5_minutes
   rule: close_outdated_issues
   options:
     # ISO 8601 duration
