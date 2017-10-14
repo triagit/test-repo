@@ -1,6 +1,7 @@
 ---
 rules:
-- rule: cleanup_issues
+- name: cleanup_issues_older_than_5_mins
+  rule: cleanup_issues
   options:
     # ISO 8601 duration
     older_than: PT5M
