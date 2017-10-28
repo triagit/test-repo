@@ -12,16 +12,16 @@ rules:
     add_comment: |
       Sorry, closing the issue as its older than 5 minutes
 
-- name: close_outdated_prs_older_than_1_minutes
+- name: close_outdated_prs_older_than_20_days
   rule: close_outdated_pr
   options: 
     # ISO 8601 duration
-    older_than: PT1M
+    older_than: P20D
     # Optional, apply labels when closing
     apply_labels: ["inactive", "rip"]
     # Optional, leave a comment when closing
     add_comment: |
-      Sorry, closing the pr as its older than 1 minutes
+      Sorry, closing the pr as its older than 20 days
 
 - name: pr_matches_format
   rule: pr_format
