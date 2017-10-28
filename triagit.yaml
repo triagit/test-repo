@@ -13,4 +13,4 @@ rules:
     # ISO 8601 duration
     older_than: PT1M
     apply_labels: ["inactive", "rip"]
-    add_comment: "Sorry, closing the pr as its older than 1 minutes
+    add_comment: "Sorry, closing the pr as its older than 1 minutes"
