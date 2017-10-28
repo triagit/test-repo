@@ -1,9 +1,25 @@
 ---
 rules:
+
 - name: close_issues_older_than_5_minutes
   rule: close_outdated_issues
   options:
     # ISO 8601 duration
     older_than: PT5M
+    # Optional, apply labels when closing
     apply_labels: ["inactive", "rip"]
-    add_comment: "Sorry, closing the issue as its older than 5 minutes"
+    # Optional, leave a comment when closing
+    add_comment: |
+      Sorry, closing the issue as its older than 5 minutes
+
+- name: pr_matches_format
+  rule: pr_format
+  options:
+    # Array of case-insensitive regular expressions
+    # TODO:
+    #   Decide on multi-line flag, escaping special characters and other specific regex behaviors
+    #   Behavior with multiple commits on a PR (squash commits, merge commits, etc)
+    #   Matching commit bodies vs PR title vs PR body
+    match_commit: ?
+    match_title: ?
+    match_body: ?
