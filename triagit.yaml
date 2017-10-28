@@ -32,6 +32,6 @@ rules:
     #   Behavior with multiple commits on a PR (squash commits, merge commits, etc)
     #   Matching commit bodies vs PR title vs PR body
     match_title:
-      - "^#\d+"
+      - "^#\\d+"
     # match_commit: ...
     # match_body: ...
