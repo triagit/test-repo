@@ -46,6 +46,7 @@ rules:
     strategy: 
       # strategies should be mutually exclusive to avoid conflicts, e.g.: too many files with 1 line change or viceversa.
       #line_based:
+        ## counts are also mutually exclusive.
         #count_per_file: 5
         #count_in_total: 20
       file_based:
