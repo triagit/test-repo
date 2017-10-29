@@ -54,5 +54,5 @@ rules:
         #count_in_total: 20
       file_based:
         count: 1
-    apply_label: xs
+    apply_label: xs  # For now we don't support array of labels
     #add_comment: (optional, e.g.: warning when PR is too big)
