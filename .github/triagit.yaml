@@ -26,14 +26,7 @@ rules:
 - name: pr_matches_format
   rule: pr_format
   options:
-    # Array of case-insensitive regular expressions
-    # TODO:
-    #   Decide on multi-line flag, escaping special characters, full vs partial match and other specific regex behaviors
-    #   Behavior with multiple commits on a PR (squash commits, merge commits, etc)
-    #   Matching commit bodies vs PR title vs PR body
-    match_title:
-      - "^#\\d+"
-    # match_commit: ...
+    match_title: "^#\\d+"
     # match_body: ...
     apply_label: invalid
     add_comment: |
