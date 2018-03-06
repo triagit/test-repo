@@ -33,19 +33,16 @@ rules:
       Sorry, PRs must follow conventions:
       1. Title must start with ticket number - #123 ...
 
-- name: pr_size_xs
-  # For now we decided to create separare rule for each label that we want to apply, e.g.: if file_based.count is less 
-  # than the actual pr size we do nothing. We could enhance this rule in the future to apply a tag according to ranges, e.g:
-  # count between 5 .. 10 apply S, count between 10 .. 15 apply M, ...
+- name: pr_size
   rule: pr_size_check
   options:
-    strategy: 
-      # strategies should be mutually exclusive to avoid conflicts, e.g.: too many files with 1 line change or viceversa.
-      #line_based:
-        ## counts are also mutually exclusive.
-        #count_per_file: 5
-        #count_in_total: 20
-      file_based:
-        count: 1
-    apply_label: xs  # For now we don't support array of labels
-    #add_comment: (optional, e.g.: warning when PR is too big)
+    strategy:
+      - lines: 5
+        files: 1
+        apply_label: size-small
+      - lines: 10
+        files: 2
+        apply_label: size-medium
+      - apply_label: size-large
+        add_comment: |
+          Your PR is way too large
