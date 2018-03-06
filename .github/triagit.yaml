@@ -11,3 +11,40 @@ rules:
     # Optional, leave a comment when closing
     add_comment: |
       Sorry, closing the issue as its older than 5 minutes
+
+- name: close_outdated_prs_older_than_20_days
+  rule: close_outdated_pr
+  options: 
+    # ISO 8601 duration
+    older_than: P20D
+    # Optional, apply label when closing
+    apply_label: inactive
+    # Optional, leave a comment when closing
+    add_comment: |
+      Sorry, closing the pr as its older than 20 days
+
+- name: pr_matches_format
+  rule: pr_format
+  options:
+    match_title: "^#\\d+"
+    # match_body: ...
+    apply_label: invalid
+    add_comment: |
+      Sorry, PRs must follow conventions:
+      1. Title must start with ticket number - #123 ...
+
+- name: pr_size
+  rule: pr_size_check
+  options:
+    strategy:
+      - lines: 5
+        files: 1
+        apply_label: size-small
+      - lines: 10
+        files: 2
+        apply_label: size-medium
+      - apply_label: size-large
+        add_comment: |
+          Your PR is way too large
+
+
